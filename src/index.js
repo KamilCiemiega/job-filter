@@ -1,10 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
+import index from "./style/index.css";
+import { ListContextProvider } from "./store/List-context";
 
 ReactDOM.render(
-  <React.StrictMode>
+  <ListContextProvider>
     <App />
-  </React.StrictMode>,
+  </ListContextProvider>,
   document.getElementById("root")
 );

@@ -1,0 +1,87 @@
+.flex {
+  display: flex;
+  flex-direction: row;
+}
+.main {
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  margin-bottom: 20px;
+  width: 80%;
+  height: 150px;
+}
+img {
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.main-wrapper-header {
+  align-items: center;
+}
+.main-wrapper-header-company {
+  color: hsl(180, 29%, 50%);
+  font-size: 18px;
+  font-weight: bold;
+}
+.main-wrapper-header-new {
+  background-color: hsl(180, 29%, 50%);
+  color: hsl(180, 31%, 95%);
+  margin-left: 20px;
+  width: 43px;
+  height: 23px;
+  font-size: 12px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: bold;
+  vertical-align: middle;
+  line-height: 23px;
+  padding: 2px;
+}
+.main-wrapper-header-featured {
+  background-color: hsl(180, 14%, 20%);
+  color: hsl(180, 31%, 95%);
+  border-radius: 10px;
+  font-size: 12px;
+  height: 23px;
+  width: 70px;
+  margin-left: 10px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 23px;
+  padding: 2px;
+}
+.main-wrapper-position {
+  margin-top: 10px;
+  font-size: 25px;
+  color: hsl(180, 29%, 50%);
+  font-weight: bold;
+}
+.main-wrapper-header-information {
+  justify-content: space-around;
+  margin-top: 10px;
+  align-items: center;
+}
+.element {
+  color: hsl(180, 8%, 52%);
+}
+p {
+  color: hsl(180, 29%, 50%);
+  margin-right: 15px;
+  font-weight: bold;
+  background-color: hsl(180, 19%, 91%);
+  padding: 7px;
+  border-radius: 8px;
+}
+p:hover {
+  color: hsl(180, 31%, 95%);
+  cursor: pointer;
+  background-color: hsl(180, 29%, 50%);
+}
+.dot {
+  height: 5px;
+  width: 5px;
+  background-color: hsl(180, 8%, 52%);
+  border-radius: 50%;
+}

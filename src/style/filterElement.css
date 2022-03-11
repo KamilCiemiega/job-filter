@@ -9,6 +9,7 @@
   margin-bottom: 20px;
   width: 80%;
   height: 150px;
+  background-color: white;
 }
 img {
   width: 20px;
@@ -84,4 +85,10 @@ p:hover {
   width: 5px;
   background-color: hsl(180, 8%, 52%);
   border-radius: 50%;
+}
+.wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

@@ -1,0 +1,24 @@
+.defoult {
+  background-color: white;
+  padding: 10px;
+  border-radius: 15px;
+  width: 100px;
+  transition: all 0.3s;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.click {
+  transition: all 0.3s;
+  width: 500px;
+  padding: 15px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+form {
+  margin-top: 20px;
+  width: 550px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

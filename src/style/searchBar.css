@@ -1,24 +1,33 @@
 .defoult {
-  background-color: white;
+  background-color: rgb(218, 216, 216);
   padding: 10px;
-  border-radius: 15px;
+  border-radius: 7px;
   width: 100px;
-  transition: all 0.3s;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 .click {
-  transition: all 0.3s;
   width: 500px;
   padding: 15px;
-  background-color: white;
-  border-radius: 15px;
+  background-color: rgb(218, 216, 216);
+  border-radius: 7px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
-form {
+.form {
   margin-top: 20px;
   width: 550px;
   height: 150px;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+.clear {
+  position: absolute;
+  left: 641px;
+  width: 40px;
+  background-color: rgb(218, 216, 216);
+  padding: 12px;
+  border-radius: 7px;
+  margin-right: 0;
+  font-weight: 400;
 }

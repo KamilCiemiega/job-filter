@@ -4,11 +4,14 @@ const ListContext = createContext({
   listData: [],
   error: false,
   fetchData: () => {},
+  inputValue: "",
+  clear: "",
 });
 
 export const ListContextProvider = (props) => {
   const [data, setData] = useState([]);
   const [error, setError] = useState(false);
+  const [inputText, setInputText] = useState("");
 
   const fetchDataHandler = async () => {
     setError(false);
@@ -32,10 +35,21 @@ export const ListContextProvider = (props) => {
     fetchDataHandler();
   }, []);
 
+  const inputHandler = (e) => {
+    const lowerCase = e.target.value.toLowerCase();
+    setInputText(lowerCase);
+  };
+
+  const clearInput = () => {
+    setInputText("");
+  };
+
   const context = {
     listData: data,
     error,
     fetchData: fetchDataHandler,
+    inputValue: inputHandler,
+    clear: clearInput,
   };
 
   return (

@@ -4,14 +4,16 @@ const ListContext = createContext({
   listData: [],
   error: false,
   fetchData: () => {},
-  inputValue: "",
+  filtredData: [],
   clear: "",
+  inputValue: [],
 });
 
 export const ListContextProvider = (props) => {
   const [data, setData] = useState([]);
   const [error, setError] = useState(false);
   const [inputText, setInputText] = useState("");
+  const [filtredData, setFiltredData] = useState([]);
 
   const fetchDataHandler = async () => {
     setError(false);
@@ -38,6 +40,22 @@ export const ListContextProvider = (props) => {
   const inputHandler = (e) => {
     const lowerCase = e.target.value.toLowerCase();
     setInputText(lowerCase);
+    const arr = [];
+    data.forEach((element, index) => {
+      element.languages.forEach((ele) => {
+        const value = ele.toLowerCase().includes(inputText);
+        if (value === true) {
+          arr.push(index);
+        }
+      });
+    });
+
+    const filteredData = data.filter((item) => {
+      for (let i = 0; i <= arr.length; i++)
+        if (item.id === arr[i]) {
+          setFiltredData(item);
+        }
+    });
   };
 
   const clearInput = () => {
@@ -48,8 +66,9 @@ export const ListContextProvider = (props) => {
     listData: data,
     error,
     fetchData: fetchDataHandler,
-    inputValue: inputHandler,
+    filtredData,
     clear: clearInput,
+    inputValue: inputHandler,
   };
 
   return (

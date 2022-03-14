@@ -13,14 +13,6 @@ const SearchBar = () => {
 
   let changeClass = showSearch ? "click" : "defoult";
 
-  // const filtredData = filterCtx.listData.filter((el) => {
-  //   if (filterCtx.inputValue === "") {
-  //     return el;
-  //   } else {
-  //     return el.languages.toLowerCase().includes(filterCtx.inputValue);
-  //   }
-  // });
-
   return (
     <div className="form">
       <input
@@ -36,9 +28,10 @@ const SearchBar = () => {
         </p>
       ) : null}
 
-      {/* {filtredData.map((item) => {
-        <li>{item.languages}</li>;
+      {/* {filterCtx.filtredData.map((item) => {
+        <p>{item.company}</p>;
       })} */}
+      {/* {console.log(filterCtx.filtredData)} */}
     </div>
   );
 };

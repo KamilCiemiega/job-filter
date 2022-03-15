@@ -3,7 +3,7 @@ import { useContext } from "react";
 import FilterElement from "./FilterElement";
 import filterList from "../style/filterList.css";
 import ListContext from "../store/List-context";
-import SearchBar from "./SearchBar";
+import { SearchBar } from "./SearchBar";
 
 const FilterList = () => {
   const listCtx = useContext(ListContext);

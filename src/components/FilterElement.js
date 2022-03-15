@@ -7,43 +7,45 @@ const FilterElement = () => {
 
   return (
     <div className="wrap">
-      {listCtx.listData.length > 0
-        ? listCtx.listData.map((item) => (
-            <div className="main flex">
-              <div className="flex">
-                <img src="../../images/faceit.svg" alt="logo"></img>
-                <div className="main-wrapper">
-                  <div className="main-wrapper-header flex">
-                    <div className="main-wrapper-header-company">
-                      {item.company}
-                    </div>
-                    {item.new ? (
-                      <div className="main-wrapper-header-new">NEW!</div>
-                    ) : null}
-                    {item.featured ? (
-                      <div className="main-wrapper-header-featured">
-                        FEATURED
-                      </div>
-                    ) : null}
-                  </div>
-                  <div className="main-wrapper-position">{item.position}</div>
-                  <div className="main-wrapper-header-information flex">
-                    <div className="element">{item.postedAt}</div>
-                    <span className="dot"></span>
-                    <div className="element">{item.contract}</div>
-                    <span className="dot"></span>
-                    <div className="element">{item.location}</div>
-                  </div>
+      {listCtx.filtredData.map((item) => {
+        <div>{item.company}</div>;
+        {
+          console.log(item.company);
+        }
+      })}
+      {listCtx.listData.map((item) => (
+        <div className="main flex">
+          <div className="flex">
+            <img src={item.logo} alt="logo"></img>
+            <div className="main-wrapper">
+              <div className="main-wrapper-header flex">
+                <div className="main-wrapper-header-company">
+                  {item.company}
                 </div>
+                {item.new ? (
+                  <div className="main-wrapper-header-new">NEW!</div>
+                ) : null}
+                {item.featured ? (
+                  <div className="main-wrapper-header-featured">FEATURED</div>
+                ) : null}
               </div>
-              <div className="main-languages flex">
-                {item.languages.map((language, key) => (
-                  <p key={key}>{language}</p>
-                ))}
+              <div className="main-wrapper-position">{item.position}</div>
+              <div className="main-wrapper-header-information flex">
+                <div className="element">{item.postedAt}</div>
+                <span className="dot"></span>
+                <div className="element">{item.contract}</div>
+                <span className="dot"></span>
+                <div className="element">{item.location}</div>
               </div>
             </div>
-          ))
-        : null}
+          </div>
+          <div className="main-languages flex">
+            {item.languages.map((language, key) => (
+              <p key={key}>{language}</p>
+            ))}
+          </div>
+        </div>
+      ))}
     </div>
   );
 };

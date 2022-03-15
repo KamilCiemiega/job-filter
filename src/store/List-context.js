@@ -5,8 +5,8 @@ const ListContext = createContext({
   error: false,
   fetchData: () => {},
   filtredData: [],
-  clear: "",
-  inputValue: [],
+  inputValue: "",
+  searchValue: "",
 });
 
 export const ListContextProvider = (props) => {
@@ -18,7 +18,7 @@ export const ListContextProvider = (props) => {
   const fetchDataHandler = async () => {
     setError(false);
     try {
-      const response = await fetch("data.json");
+      const response = await fetch("./data.json");
 
       if (!response.ok) {
         throw new Error("Something went wrong!");
@@ -37,29 +37,16 @@ export const ListContextProvider = (props) => {
     fetchDataHandler();
   }, []);
 
-  const inputHandler = (e) => {
-    const lowerCase = e.target.value.toLowerCase();
-    setInputText(lowerCase);
-    const arr = [];
-    data.forEach((element, index) => {
-      element.languages.forEach((ele) => {
-        const value = ele.toLowerCase().includes(inputText);
-        if (value === true) {
-          arr.push(index);
+  const inputHandler = (event) => {
+    setInputText(event.target.value);
+    setFiltredData(
+      data.filter((el) => {
+        const languagesLower = el.languages.map((el) => el.toLowerCase());
+        if (languagesLower.includes(event.target.value.toLowerCase())) {
+          return el;
         }
-      });
-    });
-
-    const filteredData = data.filter((item) => {
-      for (let i = 0; i <= arr.length; i++)
-        if (item.id === arr[i]) {
-          setFiltredData(item);
-        }
-    });
-  };
-
-  const clearInput = () => {
-    setInputText("");
+      })
+    );
   };
 
   const context = {
@@ -67,8 +54,8 @@ export const ListContextProvider = (props) => {
     error,
     fetchData: fetchDataHandler,
     filtredData,
-    clear: clearInput,
     inputValue: inputHandler,
+    searchValue: inputText,
   };
 
   return (

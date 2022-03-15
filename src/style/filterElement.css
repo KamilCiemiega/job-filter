@@ -12,8 +12,10 @@
   background-color: white;
 }
 img {
-  width: 20px;
-  height: 20px;
+  width: 80px;
+  height: 80px;
+  margin-right: 20px;
+  margin-left: 20px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

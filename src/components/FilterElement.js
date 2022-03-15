@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import filterElement from "../style/filterElement.css";
 import ListContext from "../store/List-context";
 
@@ -8,12 +8,9 @@ const FilterElement = () => {
   return (
     <div className="wrap">
       {listCtx.filtredData.map((item) => {
-        <div>{item.company}</div>;
-        {
-          console.log(item.company);
-        }
+        return <div>{item.id}</div>;
       })}
-      {listCtx.listData.map((item) => (
+      {/* {listCtx.listData.map((item) => (
         <div className="main flex">
           <div className="flex">
             <img src={item.logo} alt="logo"></img>
@@ -45,7 +42,7 @@ const FilterElement = () => {
             ))}
           </div>
         </div>
-      ))}
+      ))} */}
     </div>
   );
 };

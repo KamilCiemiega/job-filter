@@ -6,13 +6,11 @@ const ListContext = createContext({
   fetchData: () => {},
   filtredData: [],
   inputValue: "",
-  searchValue: "",
 });
 
 export const ListContextProvider = (props) => {
   const [data, setData] = useState([]);
   const [error, setError] = useState(false);
-  const [inputText, setInputText] = useState("");
   const [filtredData, setFiltredData] = useState([]);
 
   const fetchDataHandler = async () => {
@@ -25,7 +23,6 @@ export const ListContextProvider = (props) => {
       }
 
       const data = await response.json();
-      console.log(data);
 
       setData(data);
     } catch (error) {
@@ -38,11 +35,12 @@ export const ListContextProvider = (props) => {
   }, []);
 
   const inputHandler = (event) => {
-    setInputText(event.target.value);
     setFiltredData(
       data.filter((el) => {
         const languagesLower = el.languages.map((el) => el.toLowerCase());
         if (languagesLower.includes(event.target.value.toLowerCase())) {
+          return el;
+        } else {
           return el;
         }
       })
@@ -55,7 +53,6 @@ export const ListContextProvider = (props) => {
     fetchData: fetchDataHandler,
     filtredData,
     inputValue: inputHandler,
-    searchValue: inputText,
   };
 
   return (

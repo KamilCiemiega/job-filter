@@ -8,7 +8,7 @@ const FilterElement = () => {
   return (
     <div className="wrap">
       {listCtx.filtredData.map((item) => {
-        return <div>{item.id}</div>;
+        console.log(item);
       })}
       {/* {listCtx.listData.map((item) => (
         <div className="main flex">

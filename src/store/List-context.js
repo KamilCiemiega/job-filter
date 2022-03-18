@@ -1,17 +1,17 @@
 import { createContext, useState, useEffect } from "react";
 
 const ListContext = createContext({
-  listData: [],
   error: false,
   fetchData: () => {},
   filtredData: [],
-  inputValue: "",
+  inputValueL: "",
 });
 
 export const ListContextProvider = (props) => {
   const [data, setData] = useState([]);
   const [error, setError] = useState(false);
   const [filtredData, setFiltredData] = useState([]);
+  const [inputText, setInputText] = useState("");
 
   const fetchDataHandler = async () => {
     setError(false);
@@ -35,20 +35,25 @@ export const ListContextProvider = (props) => {
   }, []);
 
   const inputHandler = (event) => {
-    setFiltredData(
-      data.filter((el) => {
-        const languagesLower = el.languages.map((el) => el.toLowerCase());
-        if (languagesLower.includes(event.target.value.toLowerCase())) {
-          return el;
-        } else {
-          return el;
-        }
-      })
-    );
+    setInputText(event.target.value);
+  };
+
+  const filtrInputData = () => {
+    if (inputText === "") {
+      setFiltredData(data);
+    } else {
+      setFiltredData(
+        data.filter((el) => {
+          const languagesLower = el.languages.map((el) => el.toLowerCase());
+          if (languagesLower.includes(inputText.toLowerCase())) {
+            return el;
+          }
+        })
+      );
+    }
   };
 
   const context = {
-    listData: data,
     error,
     fetchData: fetchDataHandler,
     filtredData,
